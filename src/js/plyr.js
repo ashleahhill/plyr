@@ -3732,7 +3732,7 @@
         switch (type) {
             case 'video':
                 basic = videoSupport;
-                full = basic && (!isOldIE && !isIphone);
+                full = basic && (!isOldIE && !isIos); // control experience is sub-optimal on iPad
                 break;
 
             case 'audio':
@@ -3751,10 +3751,7 @@
                 basic = true;
                 full = !isOldIE && !isIos;
 
-                // YouTube seems to work on iOS 10+ on iPad
-                if (isIos && !isIphone && browser.version >= 10) {
-                    full = true;
-                }
+                // control experience is sub-optimal on iPad
 
                 break;
 
